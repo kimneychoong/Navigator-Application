@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "UTF-8">
+<title> Simple Form</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<nav class = "navbar">
+		<ul>
+			<li><a href="myContacts.html">My Contacts</a></li>
+			<li><a href = "myForm.html">Form Input</a></li>
+			<li><a href="myWidgets.html">My Widgets</a></li>
+		</ul>
+	</nav>
+<form id = "form" method = "get" target="_blank" action = "http://www-users.cselabs.umn.edu/~liux4189/echo.php">
+	<p>
+	<label> Name
+	<input name = "name" type = "text" size = "25" maxlength = "30" required pattern="[a-zA-Z0-9\s]+">
+	</label>
+	</p>
+
+	<p>
+	<label> Email
+	<input name ="email" type = "email" placeholder = "name@domain.com" required> (name@domain.com)
+	</label>
+	</p>
+
+	<p>
+	<label> Address
+	<input id = "addressTextField" name = "address" type = "text"  size = "50" required> 
+	</label>
+	</p>
+
+	<p>
+	<label> Favorite Place
+	<input name = "place" type = "text"  required>
+	</label>
+	</p>
+
+	<p>
+	<label> Enter URL of Favorite Place
+	<input name = "url" type = "url" placeholder = http://www.domainname.com required>
+	</label>
+	</p>
+	<input type="submit" value = "submit">
+	<input type="reset" value = "clear">
+</form>
+<div id="map"></div>
+
+
+<script src = script.js></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDK0DKNqi8zzPz33alk3TFfGuqak48_qAk&callback=init&libraries=places"
+async defer></script>
+
+</body>
+</html>

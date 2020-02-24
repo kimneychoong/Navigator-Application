@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Widgets</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="passwordscheck.css">
+</head>
+<body>
+	<nav class = "navbar">
+		<ul>
+			<li><a href="myContacts.html">My Contacts</a></li>
+			<li><a href = "myForm.html">Form Input</a></li>
+			<li><a href="myWidgets.html">My Widgets</a></li>
+		</ul>
+	</nav>
+
+	<h1> My Widgets List </h1>
+
+	<div class = "grid-container">
+		<div class ="item1"><iframe width="600" height="550"
+		src="https://www.youtube.com/embed/videoseries?list=PLkNVwyLvX_TFBLHCvApmvafqqQUHb6JwF"
+		allow="utoplay; encrypted-media" allowfullscreen></iframe></div>
+
+	
+		<div class = "item2"><a class="twitter-timeline" data-width ="400" data-height = "600" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+
+		<div class= "item3"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/B8JBvKQjW6k/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="12" ></blockquote> <script async src="http://platform.instagram.com/en_US/embeds.js"></script></div>
+
+		<div class = "item4" id="container">
+			<div id="header">
+			<h2>Password Strength Checking</h2>
+			<hr>
+			</div>
+			<form id = "register">
+			<div id="content">
+			<label for="password"><b>Password : </b></label>
+			<input name="password" id="password" type="password" onkeyup = "checkPasswordStrength()" placeholder="Type Your Password here"/>&nbsp;&nbsp;
+			<progress value="0" max="100" id = "bar" ></progress>
+			<span id="result"></span>
+			</div>
+			</form>
+		</div>
+
+	</div>
+
+<script>
+
+	function checkPasswordStrength(){
+		var password = document.getElementById("password").value;
+		var bar = document.getElementById("bar");
+		var strength =0;
+
+		if(password.length > 6){
+			strength +=1;
+		}
+		
+		if(password.match(/[a-zA-Z0-9][a-zA-Z0-9]+/)){
+			strength+=1;
+		}
+
+		if(password.match(/[~<>?]+/)){
+			strength+=1;
+		}
+
+		if(password.match(/[!@#$%^&*()]+/)){
+			strength +=1;
+		}
+
+		switch(strength){
+			case 0:
+			bar.value = 20;
+			document.getElementById("result").innerHTML = "too short";
+			break;
+
+			case 1:
+			bar.value = 40;
+			document.getElementById("result").innerHTML = "weak"
+			break;
+
+			case 2:
+			bar.value = 60;
+			document.getElementById("result").innerHTML = "medium";
+			break;
+
+			case 3:
+			bar.value = 80;
+			document.getElementById("result").innerHTML = "good";
+			break;
+
+			case 4:
+			bar.value = 100;
+			document.getElementById("result").innerHTML = "excellent";
+			break;
+		}
+	}
+</script>
+
+</body>
+</html>

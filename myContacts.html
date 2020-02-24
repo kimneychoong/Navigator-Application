@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Contacts</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body onload="show()">
+	<nav class = "navbar">
+		<ul>
+			<li><a href="myContacts.html">My Contacts</a></li>
+			<li><a href = "myForm.html">Form Input</a></li>
+			<li><a href="myWidgets.html">My Widgets</a></li>
+		</ul>
+	</nav>
+
+	<h1> My Contacts </h1>
+
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Address</th>
+			<th>Phone Number</th>
+			<th>Favorite Place</th>
+		</tr>
+		<tr>
+			<td>George Chang</td>
+			<td>chang012@umn.edu</td>
+			<td id = "address-1">402 14th Ave SE, Minneapolis, MN 55414</td> 
+			<td>(612)2324355</td>
+			<td><a href ="https://www.google.com/maps/place/Insomnia+Cookies/@44.9806323,-93.2376874,17z/data=!3m1!4b1!4m5!3m4!1s0x52b32d11904991cf:0x720121c5fad6b5ea!8m2!3d44.9806285!4d-93.2354987">Insomnia Cookie</a></td>
+		</tr>
+		<tr>
+			<td>Felicia Ong</td>
+			<td>felic122@umn.edu</td>
+			<td id = "address-2">701 15th Ave SE, Minneapolis, MN 55414</td>
+			<td>(651)2223445</td>
+			<td><a href ="https://www.google.com/maps/place/Radius+at+15th/@44.9762414,-93.2337922,17z/data=!4m5!3m4!1s0x52b32d0fee572e3f:0x5333d2b58ce2872d!8m2!3d44.9831597!4d-93.2321415" >Radius at 15th</a></td>
+		</tr>
+		<tr>
+			<td>Sanjit Trachovali</td>
+			<td>sanj423@umn.edu</td>
+			<td id = "address-3">500 Pillsbury Dr SE, Minneapolis, MN 55455</td>
+			<td>(626)1122222</td>
+			<td><a href ="https://www.google.com/maps/place/Civil+Engineering+Building,+500+Pillsbury+Dr+SE,+Minneapolis,+MN+55455/@44.9762414,-93.2337922,17z/data=!3m1!4b1!4m5!3m4!1s0x52b32d176f203483:0x5a24e26d6a6047df!8m2!3d44.9762376!4d-93.2316035" >Civil Engineering</a></td>
+		</tr>
+	</table>
+
+	<div class = "slides-container">
+	<div class ="slide appear"><img class = "thumbnail" src = "male1.jpg" alt = "male1"></div>
+	<div class ="slide"><img class = "thumbnail" src = "female1.jpg" alt = "female1"></div>
+	<div class ="slide"><img class = "thumbnail" src = "male2.jpg" alt = "male2"></div>	
+	</div>
+
+	<button id = "button1" onclick = "startSlide()">start</button>
+	<button id = "button2" onclick="stopSlide()">stop</button>
+	<br>
+
+	<div id="map"></div>
+	<div id ="input-area">
+		<p> &nbsp; Find
+			<select id="places" name="places" onchange="setValue(this.value)">
+				<option value="restaurant" selected>restaurant</option>
+				<option value="hospital">hospital</option>
+				<option value="parking">parking</option>
+				<option value="supermarket">supermarket</option>
+				<option value="others">others</option>
+			  </select>
+			  <br><br>
+			  &nbsp; <input type="text" id="others" name = "otherplaces" placeholder="Enter Other places" disabled><br>
+			  &nbsp; in 
+			  <input type="text" id="radius" name = "radius" placeholder="Enter Radius" required>
+			  meters<br><br>
+			  <button id = "search" onclick="startSearch()">Search</button>
+		</p>
+	</div>
+
+	<div id ="input-area2">
+		&nbsp; Direction to <br>
+		&nbsp;<input type = "text" id = "destination" ><br>
+		&nbsp; by <br>
+		<div id = "test">
+			<input type="radio" name="button" value="WALKING"> Walk<br>
+			<input type="radio" name="button" value="DRIVING"> Drive<br>
+			<input type="radio" name="button" value="TRANSIT"> Transit
+		</div>
+		<br>
+		&nbsp;<button id="go" onclick="getLocation()">Go</button>		
+	</div>
+	<div id = "left-panel">
+		<p>Total Distance:<span id = "total"></span></p>
+	</div>
+		
+	<script src = script.js></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDK0DKNqi8zzPz33alk3TFfGuqak48_qAk&callback=initMap&libraries=places"
+    async defer></script>
+</body>
+</html>
